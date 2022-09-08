@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample WEBSITE</title>
+    <style>
+        
+        body{
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            margin: 5px;
+            display: grid;
+            grid-gap: 5px;
+            grid-template-areas: 
+            "a a a a a"
+            "b c c c c";
+            grid-template-rows:20vh minmax(77vh,max-content);
+            grid-template-columns: 20vw 50vw;
+        }
+
+        .head{
+            background-color: #decade;
+            grid-area: a;
+        }
+
+        .sidebar{
+            grid-area: b;
+            background-color: #7f7ff1;
+        }
+
+        .content{
+            grid-area: c;
+            border: 2px ridge #bdafad;
+        }
+
+        h1,h2{
+            text-align: center;
+        }
+        
+        .collapse-container{
+            display: grid;
+            grid-gap: 2vh;
+            grid-template-columns: 90%;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        .collapse{
+            
+            text-align: justify;
+            border: 2px solid #7f7ff1;
+        }
+
+        .summary{
+            border: 2px solid #7f7ff1;
+            position: relative;
+            right: 0;
+            text-align: right;
+            font-size: larger;
+        }
+
+
+        @media only screen and (max-width:600px){
+            body{
+                /*Defining new template areas for small screens*/
+                grid-template-areas:
+                "a a a a a"
+                "b b b b b"
+                "c c c c c"
+                "c c c c c";
+                grid-template-rows: 20vh 20vh 60vh;
+            }
+        }
+    </style>
+    <script>
+        
+        window.onload = ()=>{
+            [...document.getElementsByClassName("summary")].forEach(x=>{
+            x.addEventListener("click",()=>{ //adding click event
+                let collapseContent = x.nextElementSibling; //content of the collapse tab
+                let v = collapseContent.style.display;
+                collapseContent.style.display = v == 'none'?'block':'none'; //toggling the display value
+            })
+        });
+        }
+        
+    </script>
+</head>
+<body>
+    <header class="head">
+        <h1>HEADER</h1>
+    </header>
+    <aside class="sidebar">
+        <h2>SIDEBAR</h2>
+    </aside>
+    <section class="content">
+        <h2>CONTENT</h2>
+        <article class="collapse-container">
+        <div class="collapse">
+            <div class="summary">Collapse 1</div>
+            <div class="ccontent">
+                The Taj Mahal was commissioned by Shah Jahan in 1631, to be built in the memory of his wife Mumtaz Mahal, who died 
+                on 17 June that year, while giving birth to their 14th child, Gauhara Begum. Construction started in 1632, and 
+                the mausoleum was completed in 1648, while the surrounding buildings and garden were finished five years later.
+                The imperial court documenting Shah Jahan's grief after the death of Mumtaz Mahal illustrates the love story held as the inspiration for the Taj Mahal.
+            </div>
+        </div>
+        <div class="collapse">
+            <div class="summary">Collapse 2</div>
+            <div class="ccontent">
+                The Taj Mahal was commissioned by Shah Jahan in 1631, to be built in the memory of his wife Mumtaz Mahal, who died 
+                on 17 June that year, while giving birth to their 14th child, Gauhara Begum. Construction started in 1632, and 
+                the mausoleum was completed in 1648, while the surrounding buildings and garden were finished five years later.
+                The imperial court documenting Shah Jahan's grief after the death of Mumtaz Mahal illustrates the love story held as the inspiration for the Taj Mahal.
+            </div>
+        </div>
+        <div class="collapse">
+            <div class="summary">Collapse 3</div>
+            <div class="ccontent">
+                The Taj Mahal was commissioned by Shah Jahan in 1631, to be built in the memory of his wife Mumtaz Mahal, who died 
+                on 17 June that year, while giving birth to their 14th child, Gauhara Begum. Construction started in 1632, and 
+                the mausoleum was completed in 1648, while the surrounding buildings and garden were finished five years later.
+                The imperial court documenting Shah Jahan's grief after the death of Mumtaz Mahal illustrates the love story held as the inspiration for the Taj Mahal.
+            </div>
+        </div>
+        <div class="collapse">
+            <div class="summary">Collapse 4</div>
+            <div class="ccontent">
+                The Taj Mahal was commissioned by Shah Jahan in 1631, to be built in the memory of his wife Mumtaz Mahal, who died 
+                on 17 June that year, while giving birth to their 14th child, Gauhara Begum. Construction started in 1632, and 
+                the mausoleum was completed in 1648, while the surrounding buildings and garden were finished five years later.
+                The imperial court documenting Shah Jahan's grief after the death of Mumtaz Mahal illustrates the love story held as the inspiration for the Taj Mahal.
+            </div>
+        </div>
+    </article>
+    </section>
+</body>
+</html>
