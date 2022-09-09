@@ -60,6 +60,10 @@
             font-size: larger;
         }
 
+        .ccontent{
+            display: none; /*Initialy all collapse tabs are closed*/
+        }
+
 
         @media only screen and (max-width:600px){
             body{
@@ -74,13 +78,18 @@
         }
     </style>
     <script>
-        
+        function close(){
+            [...document.getElementsByClassName("ccontent")].forEach(x=>x.style.display = 'none'); //All collapse tabs
+        }
         window.onload = ()=>{
             [...document.getElementsByClassName("summary")].forEach(x=>{
             x.addEventListener("click",()=>{ //adding click event
                 let collapseContent = x.nextElementSibling; //content of the collapse tab
                 let v = collapseContent.style.display;
-                collapseContent.style.display = v == 'none'?'block':'none'; //toggling the display value
+                if(v=='' || v == 'none'){
+                    close(); //Closing all collapse tabs
+                }
+                collapseContent.style.display = v == 'block'?'none':'block'; //toggling the display value
             })
         });
         }
